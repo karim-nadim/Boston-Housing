@@ -26,7 +26,6 @@ def predict_api():
 @app.route('/predict',methods=['POST'])
 def predict():
     data=[float(x) for x in request.form.values()]
-    print(f"tpye of data before reshaping: {type(data)}")
     final_input=scalar.transform(np.array(data).reshape(1,-1))
     print(final_input)
     output=regmodel.predict(final_input)[0]
@@ -35,6 +34,6 @@ def predict():
 
 
 if __name__=="__main__":
-    app.run(debug=False)
+    app.run(debug=True)
    
      
